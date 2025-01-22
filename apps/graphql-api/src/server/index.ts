@@ -2,24 +2,36 @@ import 'dotenv/config';
 import fastify from 'fastify';
 import fastifyCors from '@fastify/cors';
 import { ApolloServer } from '@apollo/server';
+import { HTTPMethods } from 'fastify/types/utils'
+import { makeExecutableSchema } from '@graphql-tools/schema';
+import resolvers from '../resolvers';
+import { typeDefs } from '../typedefs';
+import {
+    fastifyApolloDrainPlugin,
+    fastifyApolloHandler,
+  } from '@as-integrations/fastify';
 
 import { version, name } from '../../package.json';
 
 const { PORT, METHODS, CORS_ORIGINS } = process.env;
 
-const methods = METHODS?.split(",");
+const methods = METHODS?.split(",") as HTTPMethods[];
 
 const corsOptions = {
-    origin: CORS_ORIGINS.split(',')
+    origin: CORS_ORIGINS?.split(',')
 }
 
 const main = async () => {
+    //TODO: Data source implementation
+    
     const app = fastify();
     app.register(fastifyCors, corsOptions);
 
+    const schema = makeExecutableSchema({ typeDefs, resolvers });
+
     const server = new ApolloServer({
         schema,
-        plugins: [],
+        plugins: [fastifyApolloDrainPlugin(app)],
         introspection: true,
         apollo: {}
     });
@@ -27,14 +39,15 @@ const main = async () => {
     await server.start();
 
     app.route({
-        url: 'graphql',
+        url: '/graphql',
         method: methods,
-        handler: () => {}
+        handler: fastifyApolloHandler(server, {
+            context: async (request) => ({ req: request }),
+        }),
     });
 
-    await app.listen({ port: PORT });
+    await app.listen({ port: Number(PORT) });
     console.log(`Server ${name} in version:${version} running on http://localhost:${PORT}`)
-    
 }
 
 void main();
