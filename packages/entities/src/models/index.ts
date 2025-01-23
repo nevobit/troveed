@@ -1,3 +1,3 @@
 export * from './admin';
-export * from './place';
+export * from './places';
 export * from './user';

@@ -1,8 +1,8 @@
-import { Base } from '@troveed/entities';
+import { Base, StatusType } from '@troveed/entities';
 
 const admin: Base = {
     id: '',
-    status: '',
+    status: StatusType.DELETED,
     updatedAt: new Date(),
     createdAt: new Date()
 }

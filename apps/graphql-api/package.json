@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@troveed/business-logic": "workspace:*",
+    "@troveed/data-sources": "workspace:*",
     "@apollo/server": "4.11.3",
     "@as-integrations/fastify": "^2.1.1",
     "@fastify/cors": "10.0.2",
-    "@troveed/business-logic": "workspace:*",
     "@graphql-tools/schema": "10.0.16",
     "dotenv": "catalog:",
     "fastify": "catalog:",

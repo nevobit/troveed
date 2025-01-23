@@ -12,8 +12,9 @@ import {
   } from '@as-integrations/fastify';
 
 import { version, name } from '../../package.json';
+import { initDataSources } from '@troveed/data-sources';
 
-const { PORT, METHODS, CORS_ORIGINS } = process.env;
+const { PORT, METHODS, CORS_ORIGINS, MONGO_URI } = process.env;
 
 const methods = METHODS?.split(",") as HTTPMethods[];
 
@@ -22,7 +23,7 @@ const corsOptions = {
 }
 
 const main = async () => {
-    //TODO: Data source implementation
+    await initDataSources({ mongoose: MONGO_URI, redis:"fkd" })
     
     const app = fastify();
     app.register(fastifyCors, corsOptions);
@@ -35,7 +36,6 @@ const main = async () => {
         introspection: true,
         apollo: {}
     });
-
     await server.start();
 
     app.route({
