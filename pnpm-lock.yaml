@@ -12,6 +12,9 @@ catalogs:
     fastify:
       specifier: 5.2.1
       version: 5.2.1
+    mongoose:
+      specifier: 8.9.5
+      version: 8.9.5
     typescript:
       specifier: 5.7.3
       version: 5.7.3
@@ -122,6 +125,9 @@ importers:
       '@troveed/entities':
         specifier: workspace:*
         version: link:../entities
+      mongoose:
+        specifier: 'catalog:'
+        version: 8.9.5
 
   packages/data-sources:
     dependencies:
@@ -135,7 +141,7 @@ importers:
         specifier: ^5.4.2
         version: 5.4.2
       mongoose:
-        specifier: ^8.9.5
+        specifier: 'catalog:'
         version: 8.9.5
       pg:
         specifier: ^8.13.1
@@ -146,6 +152,9 @@ importers:
 
   packages/entities:
     devDependencies:
+      mongoose:
+        specifier: 'catalog:'
+        version: 8.9.5
       typescript:
         specifier: 'catalog:'
         version: 5.7.3

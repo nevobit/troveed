@@ -13,7 +13,7 @@
     "axios": "^1.7.9",
     "drizzle-orm": "^0.38.4",
     "ioredis": "^5.4.2",
-    "mongoose": "^8.9.5",
+    "mongoose": "catalog:",
     "pg": "^8.13.1",
     "url": "^0.11.4"
   }

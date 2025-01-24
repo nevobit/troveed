@@ -3,9 +3,10 @@ export interface Result<T> {
     items: T[];
     pageInfo: {
         page: number;
+        pages: number;
         hasNextPage: boolean;
-        hasPrevPage: boolean;
+        hasPreviousPage: boolean;
         nextPage: number;
-        prevPage: number;
+        previousPage: number;
     }
 }

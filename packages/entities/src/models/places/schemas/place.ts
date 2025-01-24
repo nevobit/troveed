@@ -5,8 +5,8 @@ interface Location {
     city: string;
     province: string;
     address: string;
-    lat: string;
-    lng: string;
+    lat: number;
+    lng: number;
 }
 
 interface Review {

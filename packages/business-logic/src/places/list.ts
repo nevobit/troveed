@@ -1,34 +1,40 @@
-import { Result, Place } from "@troveed/entities";
+import { Result, Place, PlaceSchemaMongo, StatusType } from "@troveed/entities";
+import mongoose from "mongoose";
 
-export const listAllPlaces = (): Result<Place> => {
-    const places: Place[] = [
-        {
-            id: 'sd23c-d23d23-d232d23',
-            name: "San Andres",
-            location: { lng: 34, ltd: 24 },
-            status: "active",
-            updatedAt: new Date(),
-            createdAt: new Date()
-        },
-        {
-            id: 'sd23c-fdfef-d232d23',
-            name: "Alemania",
-            location: { lng: 14, ltd: 94 },
-            status: "active",
-            updatedAt: new Date(),
-            createdAt: new Date()
-        }
-    ];
+interface Params {
+    page: number;
+    limit: number;
+}
+
+export const listAllPlaces = async ({ page = 1, limit = 10}: Params): Promise<Result<Place>> => {
+    const model = await mongoose.model("places", PlaceSchemaMongo);
+
+    const pageSize = limit;
+    const skip = (page - 1) * pageSize;
+    const total = await model.countDocuments();
+
+    const items = await model.find({ status: StatusType.ACTIVE })
+        .skip(skip)
+        .limit(pageSize)
+        .sort({ createdAt: -1 });
+
+    const pages = Math.ceil(total / pageSize);
+
+    const hasPreviousPage = page > 1;
+    const previousPage = hasPreviousPage ? page - 1 : page;
+    const hasNextPage = page < pages;
+    const nextPage = hasNextPage ? page + 1 : page; 
 
     return {
-        count: places.length,
-        items: places,
+        count: total,
+        items,
         pageInfo: {
-            page: 1,
-            hasNextPage: false,
-            hasPrevPage: false,
-            nextPage: 0,
-            prevPage: 0
+            page,
+            pages,
+            hasPreviousPage,
+            hasNextPage,
+            nextPage,
+            previousPage
         }
-    }
+    };
 }
