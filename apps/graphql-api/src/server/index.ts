@@ -23,7 +23,7 @@ const corsOptions = {
 }
 
 const main = async () => {
-    await initDataSources({ mongoose: MONGO_URI, redis:"fkd" })
+    await initDataSources({ mongoose: MONGO_URI })
     
     const app = fastify();
     app.register(fastifyCors, corsOptions);

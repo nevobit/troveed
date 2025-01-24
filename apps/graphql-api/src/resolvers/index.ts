@@ -1,12 +1,11 @@
-import { listAllPlaces } from "@troveed/business-logic"
+import places from "./places";
 
 export default {
     Query: {
-        async places() {
-            const listedPlaces = await listAllPlaces({ page: 1, limit: 20 });
-            return listedPlaces;
-        }
+        ...places.Query
     },
-    Mutation: {},
+    Mutation: {
+        ...places.Mutation
+    },
     Subscription: {}
 }

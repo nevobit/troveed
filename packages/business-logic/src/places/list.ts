@@ -7,11 +7,10 @@ interface Params {
 }
 
 export const listAllPlaces = async ({ page = 1, limit = 10}: Params): Promise<Result<Place>> => {
-    const model = await mongoose.model("places", PlaceSchemaMongo);
-
+    const model = mongoose.model("places", PlaceSchemaMongo);
     const pageSize = limit;
     const skip = (page - 1) * pageSize;
-    const total = await model.countDocuments();
+    const total = await model.countDocuments({ status: StatusType.ACTIVE });
 
     const items = await model.find({ status: StatusType.ACTIVE })
         .skip(skip)

@@ -19,7 +19,8 @@ export const PlaceSchemaMongo = new Schema<Place>({
         user: { type: String },
         text: { type: String },
         photos: [{ type: String }]
-     }]
+     }],
+     status: { type: String }
 } , { 
     versionKey: false,
     timestamps: true

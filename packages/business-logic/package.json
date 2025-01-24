@@ -12,6 +12,10 @@
   "dependencies": {
     "@troveed/entities": "workspace:*",
     "mongoose": "catalog:"
-
+  },
+  "devDependencies": {
+    "@troveed/typescript-config": "workspace:*",
+    "@types/node": "^22.7.4",
+    "tslib": "^2.8.1"
   }
 }

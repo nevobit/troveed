@@ -16,7 +16,7 @@ type Query{
 }
 
 type Mutation{
-    hello: String
+    place(name: String, status: String): Place
 }
 
 type Subscription{
