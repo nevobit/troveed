@@ -1,6 +1,6 @@
 import places from "./places";
 
-export default {
+export const resolvers = {
     Query: {
         ...places.Query
     },

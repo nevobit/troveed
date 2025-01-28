@@ -8,7 +8,6 @@ type MutationResolvers = {
 export default {
     Mutation: {
         async place(_: any, data: Partial<Place> ): Promise<Place> {
-            console.log(data)
             const createdPlace = await createPlace(data);
             return createdPlace;
         }

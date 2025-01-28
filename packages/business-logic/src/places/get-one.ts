@@ -1,4 +1,4 @@
-import { Place, PlaceSchemaMongo } from "@troveed/entities";
+import {  PlaceSchemaMongo } from "@troveed/entities";
 import mongoose from "mongoose";
 
 export const findPlaceById = async (id: string) => {

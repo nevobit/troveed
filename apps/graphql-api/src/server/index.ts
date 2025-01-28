@@ -4,7 +4,6 @@ import fastifyCors from '@fastify/cors';
 import { ApolloServer } from '@apollo/server';
 import { HTTPMethods } from 'fastify/types/utils'
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import resolvers from '../resolvers';
 import { typeDefs } from '../typedefs';
 import {
     fastifyApolloDrainPlugin,
@@ -13,6 +12,7 @@ import {
 
 import { version, name } from '../../package.json';
 import { initDataSources } from '@troveed/data-sources';
+import { resolvers } from '../resolvers';
 
 const { PORT, METHODS, CORS_ORIGINS, MONGO_URI } = process.env;
 
