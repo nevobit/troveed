@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
-import { Categori } from './categori';
+import { Category } from './category';
 
-export const CategoriSchemaMongo = new Schema<Categori>({
+export const CategorySchemaMongo = new Schema<Category>({
     name: { type: String },
     descripción: { type: String },
     icon: { type: String },

@@ -1,6 +1,6 @@
 import { Base } from "../../../common";
 
-export interface Categori extends Omit<Base, 'statusType'> {
+export interface Category extends Base{
     name: string;
     description: string;
     icon: string;
