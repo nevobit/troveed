@@ -7,3 +7,4 @@ catalog:
   'fastify': 5.2.1
   'dotenv': 16.4.7
   'mongoose': 8.9.5
+  'ts-node-dev': 2.0.0

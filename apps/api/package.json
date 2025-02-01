@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev -P tsconfig.json src/server/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@troveed/entities": "workspace:*"
+    "@troveed/entities": "workspace:*",
+    "fastify": "catalog:",
+    "dotenv": "catalog:",
+    "@troveed/business-logic": "workspace:*",
+    "@troveed/data-sources":"workspace:*"
   },
   "devDependencies": {
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "ts-node-dev": "catalog:",
+    "@troveed/typescript-config": "workspace:*"
   }
 }
