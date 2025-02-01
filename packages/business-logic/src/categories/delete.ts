@@ -1,6 +1,7 @@
 import {Category, CategorySchemaMongo, StatusType } from '@troveed/entities';
 import mongoose from 'mongoose';
 
+
 export const deleteCategory = async (data: Partial<Category>) => {
     const model = mongoose.model('categories', CategorySchemaMongo);
     //logic erased
