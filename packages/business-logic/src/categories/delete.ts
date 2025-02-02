@@ -1,4 +1,4 @@
-import {Category, CategorySchemaMongo, StatusType } from '@troveed/entities';
+import { Category, CategorySchemaMongo, StatusType } from '@troveed/entities';
 import mongoose from 'mongoose';
 
 
