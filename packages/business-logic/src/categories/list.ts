@@ -16,6 +16,7 @@ export const listAllCategories = async ({ page = 1, limit = 10}: Params): Promis
     .skip(skip)
     .limit(pageSize)
     .sort({ createdAt: -1 });
+    console.log('los items que se traen de categorias son:', items)
 
     const pages = Math.ceil(total / pageSize);
 

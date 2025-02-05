@@ -1,8 +1,11 @@
 import { FastifyInstance, RouteOptions } from "fastify";
 import { placesRoutes } from "./places";
+import { categoriesRoutes } from "./categories";
+
 
 const routes: RouteOptions[] = [
-    ...placesRoutes
+    ...placesRoutes,
+    ...categoriesRoutes
 ]
 
 export const registerRoutes = (fastify: FastifyInstance)  => {
