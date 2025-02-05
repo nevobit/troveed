@@ -5,7 +5,8 @@ export const fetchAllPlacesRoute: RouteOptions = {
     method: 'GET',
     url: '/places',
     handler: async (request, reply) => {
-        const places = listAllPlaces({page: 1, limit: 15});
+        const params = request.query as { page: number, limit: number};
+        const places = await listAllPlaces({page: Number(params.page), limit: Number(params.limit)});
         reply.status(200).send(places)
     }
 }
