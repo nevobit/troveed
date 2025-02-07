@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "@troveed/entities": "workspace:*",
+    "axios": "^1.7.9",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@troveed/entities": "workspace:*"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

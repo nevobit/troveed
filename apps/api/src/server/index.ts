@@ -2,6 +2,7 @@ import 'dotenv/config';
 import fastify from 'fastify';
 import { registerRoutes } from '../routes';
 import { initDataSources } from '@troveed/data-sources';
+import fastifyCors from '@fastify/cors';
 
 const { MONGO_URI } = process.env;
 
@@ -12,6 +13,10 @@ const main = async () => {
         logger: true
     });
 
+    server.register(fastifyCors, {
+        origin: "*"
+    });
+    
     server.register((instance, options, next) => {
         registerRoutes(instance);
         next();

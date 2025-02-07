@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "api-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastify/cors": "10.0.2",
-    "@troveed/business-logic": "workspace:*",
     "@troveed/data-sources": "workspace:*",
-    "@troveed/entities": "workspace:*",
-    "dotenv": "catalog:",
-    "fastify": "catalog:"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "@troveed/business-logic": "workspace:*"
   },
   "devDependencies": {
     "@troveed/typescript-config": "workspace:*",
+    "@types/express": "^5.0.0",
     "ts-node-dev": "catalog:",
     "typescript": "catalog:"
   }
