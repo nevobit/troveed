@@ -6,4 +6,5 @@ export const CategorySchemaMongo = new Schema<Category>({
     description: { type: String },
     icon: { type: String },
     image: { type: String },
+    status: { type: String }
 });
