@@ -6,10 +6,8 @@ import fastifyCors from '@fastify/cors';
 
 const { MONGO_URI } = process.env;
 
-console.log('mongo uri es', MONGO_URI)
 const main = async () => {
     await initDataSources({ mongoose: MONGO_URI })
-    console.log('mongo uri es', MONGO_URI)
 
     const server = fastify({
         logger: true

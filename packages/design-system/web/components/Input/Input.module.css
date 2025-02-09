@@ -1,0 +1,12 @@
+.button{
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.primary{
+    background-color: red;
+}
+
+.secondary{
+    background-color: purple;
+}

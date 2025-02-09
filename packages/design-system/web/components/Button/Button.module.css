@@ -1,0 +1,13 @@
+.button{
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.primary{
+    background-color: var(--troveed-btn-primary-color);
+    color: #fff;
+}
+
+.secondary{
+    background-color: purple;
+}

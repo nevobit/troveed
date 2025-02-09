@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",
     "@troveed/entities": "workspace:*",
+    "@troveed/design-system": "workspace:*",
     "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

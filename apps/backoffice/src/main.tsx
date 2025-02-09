@@ -1,3 +1,4 @@
+import "@troveed/design-system/web/styles/index.css";
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './Application.tsx'
