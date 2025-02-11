@@ -1,6 +1,6 @@
 import styles from './Home.module.css';
 import { usePlaces } from '../../hooks/usePlaces';
-import { Button } from '@troveed/design-system/web/';
+import { Button } from '@troveed/design-system/web';
 
 const Home = () => {
    const { isLoading, places } = usePlaces();

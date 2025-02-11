@@ -23,3 +23,27 @@ export const Default: Story = {
         variant: 'primary'
     }
 }
+
+export const Plain: Story = {
+    args: {
+        children: "Plain Button",
+        size: 'medium',
+        variant: 'plain'
+    }
+}
+
+export const Secondary: Story = {
+    args: {
+        children: "Plain Button",
+        size: 'medium',
+        variant: 'secondary'
+    }
+}
+
+export const Danger: Story = {
+    args: {
+        children: "Danger Button",
+        size: 'medium',
+        variant: 'tertiary'
+    }
+}
